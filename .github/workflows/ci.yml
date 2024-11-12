@@ -12,8 +12,8 @@ jobs:
         container:
             image: node:20
         steps:
-
             - uses: actions/checkout@v3
             - run: npm ci
             - run: npm test
             - run: npm run build
+            - run: export DATABASE_URL="postgres://${{ secrets.DB_USERNAME }}:${{ secrets.DB_PASSWORD }}@localhost:5433/socialnetwork"
